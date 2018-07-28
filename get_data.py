@@ -38,8 +38,6 @@ while True: #continue until getting the last page
 
     #5-1-3
     for post in posts:
-        if num > 295 and num < 300:
-            continue
         #アイテムボックスの中の名前を取得
         title = str(post.find_element_by_css_selector("h3.items-box-name").text)
         title = re.sub('【|】|《|》|❤︎|♡|①|②|③|④|⑤|⑥|⑦|⑧|⑨|⑩|★|➕|❗|☆|⭐︎|～|・|『|』|◎|◆|■|□|◇|☺︎|‼️|✖︎|☆彡|☆ミ|✨|⚠|⊿|❗️|⭐︎|〜|️️⭐️','',title)
@@ -70,7 +68,6 @@ while True: #continue until getting the last page
         #CSVに書き込み
         print(list)
         try:
-            num += 1
             with open('***.csv','a',newline="",encoding="sjis") as f:
                 writer = csv.writer(f)
                 writer.writerow(list)

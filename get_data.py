@@ -25,7 +25,6 @@ browser.get("https://www.mercari.com/jp/search/?sort_order=price_desc&keyword={}
 
 #4
 page = 1
-num=1
 while True: #continue until getting the last page
 
     #5-1
@@ -40,7 +39,6 @@ while True: #continue until getting the last page
     #5-1-3
     for post in posts:
         if num > 295 and num < 300:
-            num += 1
             continue
         #アイテムボックスの中の名前を取得
         title = str(post.find_element_by_css_selector("h3.items-box-name").text)
@@ -68,17 +66,12 @@ while True: #continue until getting the last page
 
         #データフレームに格納
         list = [title,like,price,url,sold]
-        print(list)
-        se = pandas.Series(list,['title','like','price','url','sold'])
-        df = df.append(se, ignore_index=True)
-
-        num += 1
 
         #CSVに書き込み
         print(list)
         try:
             num += 1
-            with open('nogipos.csv','a',newline="",encoding="sjis") as f:
+            with open('***.csv','a',newline="",encoding="sjis") as f:
                 writer = csv.writer(f)
                 writer.writerow(list)
                 print('ok')

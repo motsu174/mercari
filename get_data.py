@@ -62,10 +62,8 @@ while True: #continue until getting the last page
 
         url = post.find_element_by_css_selector("a").get_attribute("href")
 
-        #データフレームに格納
-        list = [title,like,price,url,sold]
-
         #CSVに書き込み
+        list = [title,like,price,url,sold]
         print(list)
         try:
             with open('***.csv','a',newline="",encoding="sjis") as f:

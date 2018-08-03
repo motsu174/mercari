@@ -71,6 +71,7 @@ while True: #continue until getting the last page
                 writer.writerow(list)
                 print('ok')
         except:
+            print('cant write csv')
             continue
 
 
